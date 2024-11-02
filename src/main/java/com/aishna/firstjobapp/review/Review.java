@@ -1,24 +1,21 @@
-package com.aishna.firstjobapp.job;
+package com.aishna.firstjobapp.review;
 
 import com.aishna.firstjobapp.company.Company;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
-@Table(name="job_table")
 @Data
-public class Job {
-
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Review {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
-    private String minSalary;
-    private String maxSalary;
-    private String location;
+    private double rating;
 
     @ManyToOne
+    @JsonIgnore
     private Company company;
-
 }
